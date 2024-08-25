@@ -1,0 +1,62 @@
+<!-- results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Finder - Search Results</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .pg-listings{
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="header"></div>
+
+    <!-- Filter Menu -->
+    <section id="filter-menu" class="filter-menu">
+        <h3>Filter by:</h3>
+        <form id="filter-form">
+            <h4>Gender</h4>
+            <label>
+                <input type="checkbox" class="gender-filter" value="male"> Male
+            </label>
+            <label>
+                <input type="checkbox" class="gender-filter" value="female"> Female
+            </label>
+            <label>
+                <input type="checkbox" class="gender-filter" value="unisex"> Unisex
+            </label>
+
+            <h4>Budget</h4>
+            <label><input type="checkbox" value="low" class="budget-filter"> Low (Under ₹5000)</label>
+            <label><input type="checkbox" value="medium" class="budget-filter"> Medium (₹5000 - ₹10000)</label>
+            <label><input type="checkbox" value="high" class="budget-filter"> High (Above ₹10000)</label>
+
+            <h4>Amenities</h4>
+            <label><input type="checkbox" value="ac" class="amenities-filter"> AC</label>
+            <label><input type="checkbox" value="non-ac" class="amenities-filter"> Non-AC</label>
+
+            <h4>Room Type</h4>
+            <label><input type="checkbox" value="individual" class="room-type-filter"> Individual</label>
+            <label><input type="checkbox" value="shared" class="room-type-filter"> Shared</label>
+        </form>
+    </section>
+
+    <!-- Filtered PG Listings -->
+    <section id="listings" class="container">
+        <h2>Filtered PGs</h2>
+        <div class="pg-listings">
+            <!-- PG listings will be injected here by JavaScript -->
+        </div>
+    </section>
+    
+    <div id="footer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

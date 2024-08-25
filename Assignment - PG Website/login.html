@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Login - PG Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        footer{
+            position:fixed;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+        });
+
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        });
+
+    document.getElementById('owner-login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const ownerId = document.getElementById('owner-id').value;
+    const password = document.getElementById('password').value;
+
+    console.log("Owner ID:", ownerId);
+    console.log("Password:", password);
+
+    
+});
+    </script>
+    <!-- Navbar -->
+    <div id="header"></div>
+
+    <!-- Login Form -->
+    <section class="login-section">
+        <div class="login-container">
+            <h2>Owner Login</h2>
+            <form id="owner-login-form">
+                <label for="owner-id">Owner User ID</label>
+                <input type="text" id="owner-id" name="owner-id" placeholder="Enter your User ID" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <div id="footer"></div>
+</body>
+</html>

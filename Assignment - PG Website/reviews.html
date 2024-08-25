@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Reviews</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const reviewForm = document.getElementById('submit-review-form');
+    const reviewsContainer = document.getElementById('reviews-container');
+
+    const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+    // Function to render reviews
+    function renderReviews() {
+        reviewsContainer.innerHTML = '';
+        reviews.forEach((review, index) => {
+            const reviewElement = `
+                <div class="review-item">
+                    <h4>${review.pgName} - ${review.userRole} (${review.rating} Stars)</h4>
+                    <p>${review.text}</p>
+                </div>
+            `;
+            reviewsContainer.innerHTML += reviewElement;
+        });
+    }
+
+    // Initial rendering of reviews
+    renderReviews();
+
+    // Submit review form handler
+    reviewForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const userRole = document.getElementById('user-role').value;
+        const pgName = document.getElementById('pg-name').value;
+        const reviewText = document.getElementById('review-text').value;
+        const rating = document.getElementById('rating').value;
+
+        const newReview = {
+            userRole,
+            pgName,
+            text: reviewText,
+            rating
+        };
+
+        reviews.push(newReview);
+        localStorage.setItem('reviews', JSON.stringify(reviews));
+
+        renderReviews();
+
+        // Clear the form
+        reviewForm.reset();
+    });
+});
+
+    </script>
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <!-- Reviews Section -->
+    <section class="review-section">
+        <h2>PG Reviews</h2>
+
+        <!-- Review Form -->
+        <div class="review-form">
+            <h3>Submit Your Review</h3>
+            <form id="submit-review-form">
+                <label for="user-role">I am a:</label>
+                <select id="user-role" name="user-role" required>
+                    <option value="tenant">Tenant</option>
+                    <option value="owner">PG Owner</option>
+                </select>
+
+                <label for="pg-name">PG Name:</label>
+                <input type="text" id="pg-name" name="pg-name" placeholder="Enter PG name" required>
+
+                <label for="review-text">Your Review:</label>
+                <textarea id="review-text" name="review-text" placeholder="Write your review here..." required></textarea>
+
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating" required>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars</option>
+                    <option value="3">3 Stars</option>
+                    <option value="2">2 Stars</option>
+                    <option value="1">1 Star</option>
+                </select>
+
+                <button type="submit">Submit Review</button>
+            </form>
+        </div>
+
+        <!-- Display Reviews -->
+        <div class="review-list">
+            <h3>All Reviews</h3>
+            <div id="reviews-container">
+                <!-- Reviews will be injected here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

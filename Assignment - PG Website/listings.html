@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PG Listings - PG Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Placeholder for Header -->
+    <div id="header"></div>
+
+    <div class="container">
+        <div class="content">
+            <!-- Sidebar Filters -->
+            <aside class="sidebar">
+                <h3>Filter by:</h3>
+                <form id="filter-form">
+                    <h4>Budget</h4>
+                    <label>
+                        <input type="checkbox" value="low" class="budget-filter">
+                        Low (Under ₹5000)
+                    </label>
+                    <label>
+                        <input type="checkbox" value="medium" class="budget-filter">
+                        Medium (₹5000 - ₹10000)
+                    </label>
+                    <label>
+                        <input type="checkbox" value="high" class="budget-filter">
+                        High (Above ₹10000)
+                    </label>
+
+                    <h4>Amenities</h4>
+                    <label>
+                        <input type="checkbox" value="ac" class="amenities-filter">
+                        AC
+                    </label>
+                    <label>
+                        <input type="checkbox" value="non-ac" class="amenities-filter">
+                        Non-AC
+                    </label>
+
+                    <h4>Room Type</h4>
+                    <label>
+                        <input type="checkbox" value="individual" class="room-type-filter">
+                        Individual
+                    </label>
+                    <label>
+                        <input type="checkbox" value="shared" class="room-type-filter">
+                        Shared
+                    </label>
+                </form>
+            </aside>
+
+            <!-- PG Listings -->
+            <section class="pg-listings">
+                <h2>Available PGs</h2>
+                <div id="pg-container">
+                    <!-- PG listings will be injected here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Placeholder for Footer -->
+    <div id="footer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
